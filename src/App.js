@@ -90,58 +90,32 @@ const TodoList = () => {
       <h5>To Dos : {count}</h5>
       <ListGroup variant="flush" as="ol" numbered>
         {toDos.map(task => {
-          if (!task.isDone) {
-            return (<ListGroup.Item
-              as="li"
-              className="d-flex justify-content-between align-items-start"
-              key={task.id}
+
+          return (<ListGroup.Item
+            as="li"
+            className="d-flex justify-content-between align-items-start"
+            key={task.id}
+          >
+            <div className="ms-2 me-auto">
+              <div className="fw-bold">{task.title}</div>
+              {task.description}
+            </div>
+            <DropdownButton
+              drop={'end'}
+              variant="link"
+              title={'Action'}
+              size=""
             >
-              <div className="ms-2 me-auto">
-                <div className="fw-bold">{task.title}</div>
-                {task.description}
-              </div>
-              <DropdownButton
-                drop={'end'}
-                variant="link"
-                title={'Action'}
-                size=""
-              >
-                <Dropdown.Item >Complete task</Dropdown.Item>
-                <Dropdown.Divider />
-                <Dropdown.Item onClick={() => { deleteTodo(task.id) }} >Delete task</Dropdown.Item>
-              </DropdownButton>
-            </ListGroup.Item>)
-          }
+              <Dropdown.Item >Complete task</Dropdown.Item>
+              <Dropdown.Divider />
+              <Dropdown.Item onClick={() => { deleteTodo(task.id) }} >Delete task</Dropdown.Item>
+            </DropdownButton>
+          </ListGroup.Item>)
+
         })}
       </ListGroup>
       <h5>Completed:</h5>
-      <ListGroup variant="flush" as="ol" numbered>
-        
-        {toDos.map(task => {
-          if (task.isDone) {
-            return (<ListGroup.Item
-              as="li"
-              className="d-flex justify-content-between align-items-start"
-              key={task.id}
-            >
-              <div className="ms-2 me-auto">
-                <div className="fw-bold">{task.title}</div>
-                {task.description}
-              </div>
-              <DropdownButton
-                drop={'end'}
-                variant="link"
-                title={'Action'}
-                size=""
-              >
-                <Dropdown.Item >Complete task</Dropdown.Item>
-                <Dropdown.Divider />
-                <Dropdown.Item onClick={() => { deleteTodo(task.id) }} >Delete task</Dropdown.Item>
-              </DropdownButton>
-            </ListGroup.Item>)
-          }
-        })}
-      </ListGroup>
+
 
     </Container>
   );
