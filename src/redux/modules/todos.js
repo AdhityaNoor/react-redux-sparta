@@ -11,7 +11,7 @@ const ADD_ITEM = 'todo-list/todos/ADD_ITEM';
 
 const DELETE_ITEM = 'todo-list/todos/DELETE_ITEM';
 
-const UPDATE_ITEM = 'todo-list/todos/UPDATE_ITEM';
+// const UPDATE_ITEM = 'todo-list/todos/UPDATE_ITEM';
 
 export const addItem = toDoItem => ({type: ADD_ITEM, payload: toDoItem});
 
